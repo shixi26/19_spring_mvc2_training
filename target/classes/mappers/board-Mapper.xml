@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd"> <!--mapper임을 명시하기 위한 DTD 선언 -->
+
+<!-- namespace는 중복되지 않고 고유해야만 한다. -->
+<mapper namespace="com.spring.mapper.BoardMapper">
+	
+	<!-- 
+	
+		id : dao와 매핑을 위한 식별자 
+		parameterType : mapper로 전달되는 데이터의 형식 지정 ( 생략 가능 )
+		
+	-->
+	<insert id="insertBoard" parameterType="com.spring.board.dto.BoardDto">
+		INSERT INTO T_BOARD (
+			WRITER,
+			EMAIL,
+			SUBJECT,
+			PASSWORD,
+			REG_DATE,
+			READ_COUNT,
+			CONTENT)
+		VALUES(
+			#{writer},
+			#{email},
+			#{subject},
+			#{password},
+			now(),
+			#{readCount},
+			#{content})
+	</insert>
+	
+	<!-- resultType : 쿼리문의 결과값을 반환하기 위한 데이터 타입 명시 -->
+	<select id="getAllBoard" resultType="com.spring.board.dto.BoardDto">
+		SELECT
+				*
+		FROM
+				T_BOARD
+	</select>
+	
+	<select id="getOneBoard" parameterType="int" resultType="com.spring.board.dto.BoardDto">
+		SELECT
+				*
+		FROM
+				T_BOARD
+		WHERE
+				NUM = #{num}
+	</select>
+	
+	<select id="validateUserCheck" parameterType="com.spring.board.dto.BoardDto" resultType="com.spring.board.dto.BoardDto">
+		SELECT
+				*
+		FROM
+				T_BOARD
+		WHERE
+				NUM = #{num} AND PASSWORD = #{password}
+	</select>
+	
+	<update id="updateBoard" parameterType="com.spring.board.dto.BoardDto">
+		UPDATE
+				T_BOARD
+		SET
+				SUBJECT = #{subject},
+				CONTENT = #{content}
+		WHERE
+				NUM = #{num}
+	</update>
+	
+	
+</mapper>
+
+
+		
