@@ -5,9 +5,14 @@
   
 <configuration>
 	
-	<!-- Snake Case(DB Colume)와 Camel Case(POJO 변수)를 매치해주는 설정  -->
+	<!-- Snake Case(DB Column)와 Camel Case(POJO 변수)를 매치해주는 설정  -->
 	<settings>
 		<setting name="mapUnderscoreToCamelCase" value="true"/>
 	</settings>
+	
+	<typeAliases>
+		<typeAlias type="com.spring.training.board_advance.dto.BoardAdvanceDto"/>
+	</typeAliases>
+	
 	
 </configuration>

@@ -11,7 +11,7 @@
 		parameterType : mapper로 전달되는 데이터의 형식 지정 ( 생략 가능 )
 		
 	-->
-	<insert id="insertBoard" parameterType="com.spring.board.dto.BoardDto">
+	<insert id="insertBoard" parameterType="com.spring.training.board.dto.BoardDto">
 		INSERT INTO T_BOARD (
 			WRITER,
 			EMAIL,
@@ -31,14 +31,14 @@
 	</insert>
 	
 	<!-- resultType : 쿼리문의 결과값을 반환하기 위한 데이터 타입 명시 -->
-	<select id="getAllBoard" resultType="com.spring.board.dto.BoardDto">
+	<select id="getAllBoard" resultType="com.spring.training.board.dto.BoardDto">
 		SELECT
 				*
 		FROM
 				T_BOARD
 	</select>
 	
-	<select id="getOneBoard" parameterType="int" resultType="com.spring.board.dto.BoardDto">
+	<select id="getOneBoard" parameterType="int" resultType="com.spring.training.board.dto.BoardDto">
 		SELECT
 				*
 		FROM
@@ -47,7 +47,7 @@
 				NUM = #{num}
 	</select>
 	
-	<select id="validateUserCheck" parameterType="com.spring.board.dto.BoardDto" resultType="com.spring.board.dto.BoardDto">
+	<select id="validateUserCheck" parameterType="com.spring.training.board.dto.BoardDto" resultType="com.spring.training.board.dto.BoardDto">
 		SELECT
 				*
 		FROM
@@ -56,7 +56,7 @@
 				NUM = #{num} AND PASSWORD = #{password}
 	</select>
 	
-	<update id="updateBoard" parameterType="com.spring.board.dto.BoardDto">
+	<update id="updateBoard" parameterType="com.spring.training.board.dto.BoardDto" >
 		UPDATE
 				T_BOARD
 		SET
