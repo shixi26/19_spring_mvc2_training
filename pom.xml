@@ -145,6 +145,26 @@
 		    <version>2.0.3</version>
 		</dependency>
 		
+		<!-- Spring Security -->
+		<dependency>				<!-- 비번암호화 -->
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-web</artifactId>
+		    <version>5.0.8.RELEASE</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-config</artifactId>
+		    <version>5.0.8.RELEASE</version>
+		</dependency>
+		
+		<!-- Excel-->
+		<dependency>		<!-- 엑셀 -->
+		    <groupId>org.apache.poi</groupId>
+		    <artifactId>poi</artifactId>
+		    <version>3.17</version>
+		</dependency>
+		
 		     
 	</dependencies>
     <build>
